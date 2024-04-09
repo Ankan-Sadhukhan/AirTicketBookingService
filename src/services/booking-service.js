@@ -34,6 +34,18 @@ class bookingService{
             throw new ServiceError();
         }
     }
+
+    async deleteBooking(bookingId){
+        try {
+            const booking = await this.bookingRepository.delete(bookingId);
+            return booking;
+        } catch (error) {
+            if(error.name == 'RepositoryError') {
+                throw error;
+            }
+            throw new ServiceError();
+        }
+    }
 }
 
 module.exports = bookingService;

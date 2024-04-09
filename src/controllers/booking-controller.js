@@ -21,6 +21,26 @@ const create = async (req, res) => {
     }
 }
 
+const destroy = async(req, res) => {
+    try {
+        const response = await bookingService.deleteBooking(req.params.bookingId);
+        return res.status(400).json({
+            message: 'Successfully deleted booking',
+            success: true,
+            err: {},
+            data: response
+        })
+    } catch (error) {
+        return res.status(404).json({
+            message: error.message,
+            success: false,
+            err: error.explanation,
+            data: {}
+        });
+    }
+}
+
 module.exports = {
-    create
+    create,
+    destroy
 }

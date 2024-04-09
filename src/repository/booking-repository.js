@@ -37,6 +37,20 @@ class BookingRepository {
                 StatusCodes.INTERNAL_SERVER_ERROR);
         }
     }
+
+    async delete(bookingId) {
+        try {
+            const booking = await Booking.findByPk(bookingId);
+            await booking.destroy();
+            return true;
+        } catch (error) {
+            throw new AppError(
+                'RepositoryError', 
+                'Cannot delete Booking', 
+                'There was some issue deleting the booking, please try again later',
+                StatusCodes.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
 
 module.exports = BookingRepository;
