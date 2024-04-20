@@ -14,7 +14,7 @@ I've segregated all the logic across different microservices so that the code ca
 - Users have to log in themselves; after that, they can book flights and seats for others who are traveling with them.
 - Filter and search functionality for flights.
 - Sign-up and sign-in for users using JWT tokens.
-- Sends emails to users who have flights in the next 48 hours (using Nodemailer).
+- Sends emails to registered users who have flights in the next 48 hours (using Nodemailer).
 - Added a cron job that automates the email-sending process.
 - Set up message queues using RabbitMQ.
 - Added an API gateway where any incoming request comes in, and based on that, it sends a request to the corresponding service. If authentication is required, it also handles authentication before sending the request to the other service.
