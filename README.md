@@ -19,3 +19,10 @@ I've segregated all the logic across different microservices so that the code ca
 - Set up message queues using RabbitMQ.
 - Added an API gateway where any incoming request comes in, and based on that, it sends a request to the corresponding service. If authentication is required, it also handles authentication before sending the request to the other service.
 - Added rate-limiting logic where, within a particular time, any user (IP address) can send a limited number of requests only.
+
+
+Tech stack used:
+
+- Node.js
+- Express.js
+- MySQL
